@@ -4,45 +4,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black-suv-COSMIC KID</title>
+    <title>BLACK-SUV // COSMIC KID</title>
+    <style>
+        :root {
+            --bg: #070b1a;
+            --panel: rgba(10, 15, 30, 0.72);
+            --panel-border: rgba(255, 255, 255, 0.14);
+            --text: #f4f7ff;
+            --muted: #c7d0ef;
+            --pink: #ff4ecd;
+            --purple: #8b5cf6;
+            --cyan: #3fe0ff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .hero video {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            filter: brightness(0.7) saturate(1.4) contrast(1.1);
+            z-index: 0;
+            transform: scale(1.08);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(7, 11, 26, 0.55), rgba(21, 20, 44, 0.35));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: min(1100px, 90%);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .eyebrow {
+            letter-spacing: 0.4rem;
+            text-transform: uppercase;
+            color: var(--cyan);
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 6vw, 6rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 0.95;
+            background: linear-gradient(90deg, #ffffff 0%, var(--cyan) 25%, var(--pink) 55%, #fff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(63, 224, 255, 0.25);
+        }
+
+        .subtitle {
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+            color: var(--muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            width: min(1100px, 90%);
+            margin: 40px auto 80px;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(8px);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--cyan);
+        }
+
+        audio, video {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .gallery {
+            margin-top: 40px;
+        }
+
+        .gallery h2 {
+            margin-bottom: 18px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--pink);
+            font-size: 1.1rem;
+        }
+
+        .images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .image-card {
+            overflow: hidden;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 24px rgba(139, 92, 246, 0.25);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-card a {
+            display: block;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Black-suv-COSMIC KID</h1>
-
-    <section>
-        <h2>Audio</h2>
-        <audio controls>
-
-            <source src="audio.mp3" type="audio/mpeg">
-            Tu navegador no soporta el elemento de audio.
-        </audio>
-    </section>
-
-    <section>
-        <h2>Video</h2>
-        <video width="640" height="360" controls>
+    <header class="hero">
+        <video autoplay muted loop playsinline>
             <source src="video.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
         </video>
-    </section>
 
-    <section>
-        <h2>Imágenes</h2>
+        <div class="hero-content">
+            <div class="eyebrow">Artist / Sound / Vision</div>
+            <h1>Black-Suv<br>Cosmic Kid</h1>
+            <p class="subtitle">Vibes intergalácticas, ritmo urbano y energía del futuro.</p>
+        </div>
+    </header>
 
-        <a href="https://www.youtube.com/results?search_query=Black+suv+COSMIC+KID" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80" alt="Grupo musical 1" width="300">
-        </a>
+    <main class="main-content panel">
+        <section class="media-grid">
+            <div class="card">
+                <h2>Audio</h2>
+                <audio controls>
+                    <source src="audio.mp3" type="audio/mpeg">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
 
-        <a href="https://www.youtube.com/results?search_query=Black+suv+COSMIC+KID+album" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80" alt="Grupo musical 2" width="300">
-        </a>
+            <div class="card">
+                <h2>Video</h2>
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+        </section>
 
-        <a href="https://www.youtube.com/results?search_query=Black+suv+COSMIC+KID+live" target="_blank" rel="noopener noreferrer">
-            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80" alt="Grupo musical 3" width="300">
-        </a>
-    </section>
+        <section class="gallery">
+            <h2>Galería</h2>
+            <div class="images">
+                <div class="image-card">
+                    <a href="https://www.youtube.com/results?search_query=Black+suv+COSMIC+KID" target="_blank" rel="noopener noreferrer">
+                        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80" alt="Black-suv COSMIC KID 1">
+                    </a>
+                </div>
 
+                <div class="image-card">
+                    <a href="https://www.youtube.com/results?search_query=Black+suv+COSMIC+KID+album" target="_blank" rel="noopener noreferrer">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=800&q=80" alt="Black-suv COSMIC KID 2">
+                    </a>
+                </div>
+
+                <div class="image-card">
+                    <a href="https://www.youtube.com/results?search_query=Black+suv+COSMIC+KID+live" target="_blank" rel="noopener noreferrer">
+                        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80" alt="Black-suv COSMIC KID 3">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
